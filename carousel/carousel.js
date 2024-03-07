@@ -125,15 +125,13 @@ if (images.length !== 0) {
     </body>
   </html>
    `;
-  document.currentScript.parentElement.append(wrapper);
 
-  const holder = document.querySelector(".carousel-place-holder");
+  document.querySelector(".carousel-container").append(wrapper);
   const carousel = document.querySelector(".store-carousel-carousel");
   const slides = document.querySelector(".store-carousel-slides");
   const prevButton = document.querySelector(".store-carousel-prev-button");
   const nextButton = document.querySelector(".store-carousel-next-button");
 
-  holder?.remove();
   images.forEach((imageSrc) => {
     const slide = document.createElement("li");
     slide.classList.add("store-carousel-slide");

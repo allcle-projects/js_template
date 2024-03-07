@@ -13,10 +13,6 @@ if (images.length !== 0) {
           box-sizing: border-box;
         }
 
-        .carousel-place-holder {
-          display: none; 
-        }
-
         html {
           -webkit-text-size-adjust: 100%;
           -webkit-tap-highlight-color: transparent;
@@ -131,11 +127,13 @@ if (images.length !== 0) {
    `;
   document.currentScript.parentElement.append(wrapper);
 
+  const holder = document.querySelector(".carousel-place-holder");
   const carousel = document.querySelector(".store-carousel-carousel");
   const slides = document.querySelector(".store-carousel-slides");
   const prevButton = document.querySelector(".store-carousel-prev-button");
   const nextButton = document.querySelector(".store-carousel-next-button");
 
+  holder?.remove();
   images.forEach((imageSrc) => {
     const slide = document.createElement("li");
     slide.classList.add("store-carousel-slide");

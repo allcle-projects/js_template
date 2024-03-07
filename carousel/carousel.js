@@ -13,6 +13,10 @@ if (images.length !== 0) {
           box-sizing: border-box;
         }
 
+        .carousel-place-holder {
+          display: none; 
+        }
+
         html {
           -webkit-text-size-adjust: 100%;
           -webkit-tap-highlight-color: transparent;
@@ -173,7 +177,7 @@ if (images.length !== 0) {
     } else {
       nextButton.style.visibility = "visible";
     }
-    slides.style.transition = `transform 0.3s ease-in-out`;
+    slides.style.transition = `transform 0.7s ease-in-out`;
     slides.style.transform = `translateX(${-100 * n}%)`;
     currentSlide = n;
   };

@@ -1,8 +1,14 @@
 # js_template
 
-## carousel
-```
 
+
+## carousel
+
+<p align="center">
+  <img src = "./preview/carousel.png" width="300" alt=""/>
+</p>
+
+```html
 <html>
   <body>
     <script>
@@ -12,8 +18,7 @@
       ];
     </script>
     <div class="carousel-container"></div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/allcle-projects/js_template@0.0.6/carousel/carousel.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/allcle-projects/js_template@0.0.7/carousel/carousel.js"></script>
   </body>
 </html>
-
 ```

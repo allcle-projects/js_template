@@ -69,6 +69,7 @@ if (images.length !== 0) {
         .store-carousel-prev-button,
         .store-carousel-next-button {
           display: flex;
+          min-width: auto;
           align-items: center;
           justify-content: center;
           height: 36px;

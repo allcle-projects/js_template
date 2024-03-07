@@ -17,8 +17,6 @@ if (images.length !== 0) {
           -webkit-text-size-adjust: 100%;
           -webkit-tap-highlight-color: transparent;
           -webkit-touch-callout: none;
-          -ms-touch-action: manipulation;
-          touch-action: manipulation;
         }
   
         ul {
@@ -27,6 +25,7 @@ if (images.length !== 0) {
   
         .store-carousel-container {
           position: relative;
+          touch-action: pan-y;
         }
 
         .store-carousel-carousel {
@@ -37,7 +36,6 @@ if (images.length !== 0) {
           overflow: hidden;
           position: relative;
           background: #ffffff;
-          touch-action: none;
         }
         .store-carousel-slides {
           display: flex;

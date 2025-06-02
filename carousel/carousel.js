@@ -1,5 +1,5 @@
 if (images.length !== 0) {
-  var wrapper = document.createElement("div");
+  const wrapper = document.createElement("div");
   wrapper.innerHTML = `
   <!DOCTYPE html>
   <html lang="ko">
@@ -133,16 +133,32 @@ if (images.length !== 0) {
   const prevButton = document.querySelector(".store-carousel-prev-button");
   const nextButton = document.querySelector(".store-carousel-next-button");
 
-  images.forEach((imageSrc) => {
+  carousel.style.height = 'auto';
+  carousel.style.aspectRatio = `${ratio}`;
+  images.forEach((mediaSrc) => {
     const slide = document.createElement("li");
     slide.classList.add("store-carousel-slide");
-    const image = document.createElement("img");
-    image.src = imageSrc;
-    image.onload = () => {
-      const ratio = image.naturalWidth / image.naturalHeight;
-      carousel.style.height = `${100 / ratio}vw`;
-    };
-    slide.appendChild(image);
+
+    const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(mediaSrc);
+
+    if (isVideo) {
+      const video = document.createElement("video");
+      video.src = mediaSrc;
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.style.width = "100%";
+
+      slide.appendChild(video);
+    } else {
+      const image = document.createElement("img");
+      image.src = mediaSrc;
+      image.style.width = "100%";
+
+      slide.appendChild(image);
+    }
+
     slides.appendChild(slide);
   });
 

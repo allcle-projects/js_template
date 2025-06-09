@@ -108,15 +108,19 @@ if (images.length !== 0) {
     container.appendChild(wrapper);
 
     new Swiper(".swiper", {
+        slidesPerView: 1,
+        loop: loopMode,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-        slidesPerView: 1,
-        loop: false,
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
+        },
+        autoplay: {
+            ...autoPlay,
+            disableOnInteraction: false,
         },
     });
 }

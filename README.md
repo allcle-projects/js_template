@@ -14,18 +14,19 @@
 </head>
 <body>
 <script>
+    const loopMode = false;
     const ratio = 16 / 9;
-    const images = [
-        "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-        "https://placehold.co/600x300/orange/white",
-        "https://placehold.co/600x300/orange/white",
-    ];
+    const autoPlay = {
+        delay: 500,
+    }
+    const images = ["https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", "https://placehold.co/600x300/orange/white", "https://placehold.co/600x300/orange/white"];
 </script>
+
 <div class="carousel-container"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/allcle-projects/js_template@0.1.0/carousel/carousel.js"></script>
+        src="https://cdn.jsdelivr.net/gh/allcle-projects/js_template@0.1.1/carousel/carousel.js"></script>
 </body>
 </html>
 ```

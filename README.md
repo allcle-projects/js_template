@@ -23,6 +23,6 @@
         ];
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/allcle-projects/js_template@0.1.2/carousel/carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/allcle-projects/js_template@0.1.3/carousel/carousel.js"></script>
 </div>
 ```

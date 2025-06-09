@@ -1,13 +1,22 @@
-if (images.length !== 0) {
-    const container = document.querySelector(".carousel-container");
+const hostName = window.location.hostname;
+const availableHosts = [
+    "store.allcl.kr",
+    "store-dev.allcl.kr",
+    "motemote.kr",
+    "localhost",
+]
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "swiper";
-    wrapper.style.width = "100%";
-    wrapper.style.position = "relative";
-    wrapper.style.paddingTop = `${(1 / ratio) * 100}%`; // 비율 유지용 padding-top
+if (availableHosts.includes(hostName)) {
+    if (images.length !== 0) {
+        const container = document.querySelector(".carousel-container");
 
-    wrapper.innerHTML = `
+        const wrapper = document.createElement("div");
+        wrapper.className = "swiper";
+        wrapper.style.width = "100%";
+        wrapper.style.position = "relative";
+        wrapper.style.paddingTop = `${(1 / ratio) * 100}%`; // 비율 유지용 padding-top
+
+        wrapper.innerHTML = `
     <style>
       * {
         margin: 0; padding: 0; box-sizing: border-box;
@@ -87,40 +96,43 @@ if (images.length !== 0) {
 
     <div class="swiper-wrapper">
       ${images
-        .map((src) => {
-            const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(src);
-            return `
+            .map((src) => {
+                const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(src);
+                return `
             <div class="swiper-slide">
               ${
-                isVideo
-                    ? `<video src="${src}" autoplay muted loop playsinline></video>`
-                    : `<img src="${src}" alt="carousel image" />`
-            }
+                    isVideo
+                        ? `<video src="${src}" autoplay muted loop playsinline></video>`
+                        : `<img src="${src}" alt="carousel image" />`
+                }
             </div>`;
-        })
-        .join("")}
+            })
+            .join("")}
     </div>
     <div class="swiper-pagination"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   `;
 
-    container.appendChild(wrapper);
+        container.appendChild(wrapper);
 
-    new Swiper(".swiper", {
-        slidesPerView: 1,
-        loop: loopMode,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        autoplay: {
-            ...autoPlay,
-            disableOnInteraction: false,
-        },
-    });
+        new Swiper(".swiper", {
+            slidesPerView: 1,
+            loop: loopMode,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                ...autoPlay,
+                disableOnInteraction: false,
+            },
+        });
+    }
 }
+
+

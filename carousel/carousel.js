@@ -128,10 +128,10 @@ if (hostName && availableHosts.includes(hostName)) {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            autoplay: {
-                ...autoPlay,
+            autoplay: autoPlayOption.autoPlay ? {
+                ...autoPlayOption,
                 disableOnInteraction: false,
-            },
+            } : false,
         });
     }
 }

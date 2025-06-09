@@ -1,4 +1,5 @@
-const hostName = window.location.hostname;
+const hostName = window.location.hostname || new URL(window.location.ancestorOrigins?.[0]).hostname || '';
+
 const availableHosts = [
     "store.allcl.kr",
     "store-dev.allcl.kr",
@@ -6,7 +7,7 @@ const availableHosts = [
     "localhost",
 ]
 
-if (availableHosts.includes(hostName)) {
+if (hostName && availableHosts.includes(hostName)) {
     if (images.length !== 0) {
         const container = document.querySelector(".carousel-container");
 

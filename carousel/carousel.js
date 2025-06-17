@@ -47,30 +47,6 @@ if (hostName && availableHosts.includes(hostName)) {
         object-fit: cover;
         pointer-events: none;
       }
-      .swiper-button-prev,
-      .swiper-button-next {
-        position: absolute;
-        color: #000;
-        width: 32px;
-        height: 32px;
-        top: calc(50% + 16px);
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 50%;
-        transition: opacity 1s ease;
-      }
-      .swiper-button-disabled {
-          display: none;
-      }
-      .swiper-button-prev:hover,
-      .swiper-button-next:hover {
-          opacity: 0.8;
-      }
-      .swiper-button-prev::after,
-      .swiper-button-next::after {
-          font-size: 14px;
-      }
-      
       .swiper-pagination {
         position: absolute;
         bottom: 8px !important;
@@ -81,17 +57,6 @@ if (hostName && availableHosts.includes(hostName)) {
         z-index: 20;
         display: flex;
         flex-direction: row;
-      }
-       
-      .swiper-pagination-bullet {
-         margin: 0 !important;
-         width: 24px;
-         height: 4px;
-         border-radius: 4px;
-      }
-    
-      .swiper-pagination-bullet-active {
-        background: #000
       }
     </style>
 
@@ -111,8 +76,6 @@ if (hostName && availableHosts.includes(hostName)) {
             .join("")}
     </div>
     <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
   `;
 
         container.appendChild(wrapper);
@@ -120,10 +83,6 @@ if (hostName && availableHosts.includes(hostName)) {
         new Swiper(".swiper", {
             slidesPerView: 1,
             loop: loopMode,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,

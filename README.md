@@ -13,7 +13,8 @@
     <script>
         const loopMode = false;
         const ratio = 16 / 9;
-        const autoPlay = {
+        const autoPlayOption = {
+            autoPlay: true,
             delay: 3000,
         }
         const images = [

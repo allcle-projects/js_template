@@ -47,16 +47,29 @@ if (hostName && availableHosts.includes(hostName)) {
         object-fit: cover;
         pointer-events: none;
       }
+    
+     
       .swiper-pagination {
         position: absolute;
-        bottom: 8px !important;
-        left: 8px !important;
+        top: 8px !important;
+        right: 8px !important;
         pointer-events: auto !important;
-        gap: 4px;
+        gap: 2px;
         width: 100%;
         z-index: 20;
         display: flex;
         flex-direction: row;
+      }
+       
+      .swiper-pagination-bullet {
+         margin: 0 !important;
+         width: 5px;
+         height: 2px;
+         border-radius: 24px;
+      }
+    
+      .swiper-pagination-bullet-active {
+        background: #000
       }
     </style>
 

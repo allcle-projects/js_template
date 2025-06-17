@@ -52,13 +52,14 @@ if (hostName && availableHosts.includes(hostName)) {
       .swiper-pagination {
         position: absolute;
         top: 8px !important;
-        right: 8px !important;
+        padding-right: 8px !important;
         pointer-events: auto !important;
         gap: 2px;
         width: 100%;
         z-index: 20;
         display: flex;
         flex-direction: row;
+        justify-content: end;
       }
        
       .swiper-pagination-bullet {

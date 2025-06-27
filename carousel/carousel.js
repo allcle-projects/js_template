@@ -1,23 +1,26 @@
-const hostName = window.location.hostname || new URL(window.location.ancestorOrigins?.[0]).hostname || '';
+const hostName =
+  window.location.hostname ||
+  new URL(window.location.ancestorOrigins?.[0]).hostname ||
+  "";
 
 const availableHosts = [
-    "store.allcl.kr",
-    "store-dev.allcl.kr",
-    "motemote.kr",
-    "localhost",
-]
+  "store.allcl.kr",
+  "store-dev.allcl.kr",
+  "motemote.kr",
+  "localhost",
+];
 
 if (hostName && availableHosts.includes(hostName)) {
-    if (images.length !== 0) {
-        const container = document.querySelector(".carousel-container");
+  if (sources.length !== 0) {
+    const container = document.querySelector(".carousel-container");
 
-        const wrapper = document.createElement("div");
-        wrapper.className = "swiper";
-        wrapper.style.width = "100%";
-        wrapper.style.position = "relative";
-        wrapper.style.paddingTop = `${(1 / ratio) * 100}%`; // 비율 유지용 padding-top
+    const wrapper = document.createElement("div");
+    wrapper.className = "swiper";
+    wrapper.style.width = "100%";
+    wrapper.style.position = "relative";
+    wrapper.style.paddingTop = `${(1 / ratio) * 100}%`; // 비율 유지용 padding-top
 
-        wrapper.innerHTML = `
+    wrapper.innerHTML = `
     <style>
       * {
         margin: 0; padding: 0; box-sizing: border-box;
@@ -53,7 +56,7 @@ if (hostName && availableHosts.includes(hostName)) {
         position: absolute;
         top: 8px !important;
         padding-right: 8px !important;
-        pointer-events: auto !important;
+        pointer-events: none !important;
         gap: 2px;
         width: 100%;
         z-index: 20;
@@ -75,38 +78,69 @@ if (hostName && availableHosts.includes(hostName)) {
     </style>
 
     <div class="swiper-wrapper">
-      ${images
-            .map((src) => {
-                const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(src);
-                return `
-            <div class="swiper-slide">
-              ${
-                    isVideo
-                        ? `<video src="${src}" autoplay muted loop playsinline></video>`
-                        : `<img src="${src}" alt="carousel image" />`
-                }
-            </div>`;
-            })
-            .join("")}
+      ${sources
+        .map((item) => {
+          const src = typeof item === "string" ? item : item.src;
+          const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(src);
+
+          if (isVideo) {
+            const href = item.href;
+            const target = item.target || "_self";
+
+            if (href) {
+              return `
+                <div class="swiper-slide">
+                  <a href="${href}" target="${target}" style="display: block; width: 100%; height: 100%;">
+                    <video src="${src}" autoplay muted loop playsinline></video>
+                  </a>
+                </div>`;
+            } else {
+              return `
+                <div class="swiper-slide">
+                  <video src="${src}" autoplay muted loop playsinline></video>
+                </div>`;
+            }
+          } else {
+            const href = item.href;
+            const target = item.target || "_self";
+
+            if (href) {
+              return `
+                <div class="swiper-slide">
+                  <a href="${href}" target="${target}" style="display: block; width: 100%; height: 100%;">
+                    <img src="${src}" alt="carousel image" />
+                  </a>
+                </div>`;
+            } else {
+              return `
+                <div class="swiper-slide">
+                  <img src="${src}" alt="carousel image" />
+                </div>`;
+            }
+          }
+        })
+        .join("")}
     </div>
     <div class="swiper-pagination"></div>
   `;
 
-        container.appendChild(wrapper);
+    container.appendChild(wrapper);
 
-        new Swiper(".swiper", {
-            slidesPerView: 1,
-            loop: loopMode,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            autoplay: autoPlayOption.autoPlay ? {
-                ...autoPlayOption,
-                disableOnInteraction: false,
-            } : false,
-        });
-    }
+    new Swiper(".swiper", {
+      slidesPerView: 1,
+      loop: loopMode,
+      allowTouchMove: slidable,
+      grabCursor: slidable,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: autoPlayOption.autoPlay
+        ? {
+            ...autoPlayOption,
+            disableOnInteraction: !slidable,
+          }
+        : false,
+    });
+  }
 }
-
-

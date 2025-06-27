@@ -1,19 +1,34 @@
-<meta charset="UTF-8">
-<meta charset="UTF-8"/>
-<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<meta charset="UTF-8" />
+<link
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  rel="stylesheet"
+/>
 <div class="carousel-container"></div>
 <script>
-    const loopMode = false;
-    const ratio = 16 / 9;
-    const autoPlayOption = {
-        autoPlay: true,
-        delay: 3000,
-    };
-    const images = [
-        "https://shopby-images.cdn-nhncommerce.com/20250607/164006.240394529/필통.jpg",
-        "https://shopby-images.cdn-nhncommerce.com/20250607/164006.240394529/필통.jpg",
-        "https://shopby-images.cdn-nhncommerce.com/20250607/164006.240394529/필통.jpg",
-    ];
+  const loopMode = false;
+  const slidable = true;
+  const ratio = 16 / 9;
+  const autoPlayOption = {
+    autoPlay: true,
+    delay: 3000,
+  };
+  const sources = [
+    {
+      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      href: "https://example.com/video1",
+      target: "_blank",
+    },
+    {
+      src: "https://shopby-images.cdn-nhncommerce.com/20250607/164006.240394529/필통.jpg",
+      href: "https://example.com/image1",
+      target: "_blank",
+    },
+    {
+      src: "https://shopby-images.cdn-nhncommerce.com/20250607/164006.240394529/필통.jpg",
+      href: "https://example.com/image2",
+      target: "_blank",
+    },
+  ];
 </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="carousel.js"></script>
